@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <form action={% url 'index_form' %} method="post">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="fieldWrapper">
+        <span style="font-size: 90%; font-style: italic;">
+          {{ field.help_text }}
+        </span>
+        <br>
+        {{ field.label_tag }} {{ field }}
+      </div>
+      <br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
